@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <style>
+        .daohang{
+            width:100%;
+            height:50px;
+            font-size: 16px;
+
+        }
+        .headerd{
+            width:100%;
+            height:50px;
+            color:white;
+            background-color:#31b0d5;
+        }
+        .row{
+            margin-top:15px;
+        }
+        .duiqi{
+            text-align: justify;
+        }
+        .ls{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid  daohang">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <img height="40" width="40" class="oldboy" src="data:image/png;base64,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" _v-319a3b1b="">
+        <a class="navbar-brand" href="#">博客园</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        {% if request.user.username %}
+            <li><a href="#">越学越优秀：<span class="glyphicon glyphicon-user"></span>{{ request.user.username }}</a></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">站点信息 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">修改密码</a></li>
+                <li><a href="/{{ request.user.username }}/">个人主页</a></li>
+                <li><a href="/backend/">后台管理</a></li>
+                <li><a href="/logout/">注销</a></li>
+                <li role="separator" class="divider"></li>
+            </ul>
+            </li>
+        {% else %}
+            <li><a href="/login/" class="ls">登录</a></li>
+            <li><a href="" class="ls">注册</a></li>
+        {% endif %}
+
+        </ul>
+  </div>
+</div>
+
+<div class="headerd">
+    <ul class="nav navbar-nav navbar-left ">
+        <li><a href="" class="ls">园子</a></li>
+        <li><a href="" class="ls">新闻</a></li>
+        <li><a href="" class="ls">博问</a></li>
+        <li><a href="" class="ls">闪存</a></li>
+        <li><a href="" class="ls">小组</a></li>
+        <li><a href="" class="ls">收藏</a></li>
+        <li><a href="" class="ls">招聘</a></li>
+        <li><a href="" class="ls">班级</a></li>
+        <li><a href="" class="ls">找找看</a></li>
+    </ul>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-success">
+                <div class="panel-heading">网站分类</div>
+                <div class="panel-body">网站分类显示区域</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">链接</div>
+                <div class="panel-body">链接内容显示区域2</div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">最新推荐博客</div>
+                <div class="panel-body">最新最贱博客显示区域3</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="article_list">
+                {% for article in article_list %}
+                    <div class="article_item">
+                        <h5><a href="/{{ article.user.username }}/articles/{{ article.pk }}">{{ article.title }}</a></h5>
+                        <div>
+                            <span class="media-left small"><a href="/{{ article.user.username }}"><img  width="60" height="60" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531240651890&di=350a7df61f70b9dbedaf98dc34223632&imgtype=0&src=http%3A%2F%2Fpic.weifengke.com%2Fattachments%2F2%2F2893%2Fee9856f448f482d82480a6beafbf439a.jpg" alt=""></a></span>
+                            <span class="media-right small duiqi">{{ article.desc }}</span>
+                        </div>
+                        <div class="msg">
+                            <span class="small"><a href="/{{ article.user.username }}">{{ article.user.username }}</a></span>&nbsp;&nbsp;&nbsp;
+                            发布于: <span class="small">{{ article.create_time|date:"Y-m-d H:i" }}</span>&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-comment small"><a href="">评论：({{ article.comment_count }})</a></span>&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-thumbs-up small"><a href="">点赞：({{ article.up_count }})</a></span>
+
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">右侧搜索</div>
+                <div class="panel-body">右侧搜索区域内容</div>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">右侧新闻</div>
+                <div class="panel-body">右侧新闻内容</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">右侧广告区域</div>
+                <div class="panel-body">右侧广告区域内容</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

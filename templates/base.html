@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/theme/{{ blog.theme }}">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="icon" href="//www.jd.com/favicon.ico" mce_href="//www.jd.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/article_detail.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="header">
+    <span class="title">{{ blog.title }}</span>
+    <a href="/logout/" class="pull-right daohang">注销(退出)</a>
+    <a href="/index/" class="pull-right daohang ">返回首页</a>&nbsp;&nbsp;&nbsp;
+    <a href="/backend/" class="pull-right daohang ">后台管理</a>&nbsp;&nbsp;
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="left-region">
+                <div class="panel panel-success">
+                    <div class="panel-heading">随笔分类</div>
+                    <div class="panel-body">
+                        {% for cate in cate_list %}
+                            <p><a href="/{{ username }}/category/{{ cate.0 }}">{{ cate.0 }}({{ cate.1 }})</a></p>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">我的标签</div>
+                    <div class="panel-body">
+                        {% for tag in tag_list %}
+                            <p><a href="/{{ username }}/tag/{{ tag.0 }}">{{ tag.0 }}({{ tag.1 }})</a></p>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading">日期归档</div>
+                    <div class="panel-body">
+                        {% for date in date_list %}
+                            <p><a href="/{{ username }}/achrive/{{ date.0 }}">{{ date.0 }}({{ date.1 }})</a></p>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
