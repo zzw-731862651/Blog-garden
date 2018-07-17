@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import auth
 from cmdb.models import Article, UserInfo, Category, Tag,ArticleUpDown,Comment,Article2Tag
 from django.db.models import Count, Avg
+from utils.code import check_code
 import json
 from django.http import JsonResponse
 from django.db.models import F
@@ -15,16 +16,38 @@ from bs4 import BeautifulSoup
 
 # 用户名：zhao 密码:zhao1234
 # 用户名：alex 密码:alex1234
+
+
 def index(request):
     article_list = Article.objects.all()
 
     return render(request, 'index.html', {"article_list": article_list})
 
 
+def code(request):
+    """
+    生成图片验证码
+    :param request:
+    :return:
+    """
+    img,random_code = check_code()
+    request.session['random_code'] = random_code
+    from io import BytesIO
+    stream = BytesIO()
+    img.save(stream, 'png')
+    return HttpResponse(stream.getvalue())
+
+
+
 def login(request):
+
     if request.method == 'POST':
         user = request.POST.get("user")
         pwd = request.POST.get("pwd")
+        code = request.POST.get("code")
+
+        if code.upper() != request.session['random_code'].upper():
+            return render(request,'login.html',{"msg":"验证码错误"})
         user = auth.authenticate(username=user, password=pwd)
         if user:
             auth.login(request, user)
