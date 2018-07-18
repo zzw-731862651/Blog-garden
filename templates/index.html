@@ -102,7 +102,7 @@
                     <div class="article_item">
                         <h5><a href="/{{ article.user.username }}/articles/{{ article.pk }}">{{ article.title }}</a></h5>
                         <div>
-                            <span class="media-left small"><a href="/{{ article.user.username }}"><img  width="60" height="60" src="/static/imgs/ba582bea-590e-4e6d-afa9-a320f42c5bfd.jpg" alt=""></a></span>
+                            <span class="media-left small"><a href="/{{ article.user.username }}"><img  width="60" height="60" src="{{ article.user.avatar }}" alt=""></a></span>
                             <span class="media-right small duiqi">{{ article.desc }}</span>
                         </div>
                         <div class="msg">
