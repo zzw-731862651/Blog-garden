@@ -60,7 +60,7 @@
             </li>
         {% else %}
             <li><a href="/login/" class="ls">登录</a></li>
-            <li><a href="" class="ls">注册</a></li>
+            <li><a href="/register/" class="ls">注册</a></li>
         {% endif %}
 
         </ul>
@@ -102,7 +102,7 @@
                     <div class="article_item">
                         <h5><a href="/{{ article.user.username }}/articles/{{ article.pk }}">{{ article.title }}</a></h5>
                         <div>
-                            <span class="media-left small"><a href="/{{ article.user.username }}"><img  width="60" height="60" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531240651890&di=350a7df61f70b9dbedaf98dc34223632&imgtype=0&src=http%3A%2F%2Fpic.weifengke.com%2Fattachments%2F2%2F2893%2Fee9856f448f482d82480a6beafbf439a.jpg" alt=""></a></span>
+                            <span class="media-left small"><a href="/{{ article.user.username }}"><img  width="60" height="60" src="/static/imgs/ba582bea-590e-4e6d-afa9-a320f42c5bfd.jpg" alt=""></a></span>
                             <span class="media-right small duiqi">{{ article.desc }}</span>
                         </div>
                         <div class="msg">

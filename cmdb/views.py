@@ -9,6 +9,7 @@ from django.db.models import F
 from django.db import transaction
 from BOKEYUANXIANGMU import settings
 import os
+import uuid
 from bs4 import BeautifulSoup
 
 
@@ -54,6 +55,41 @@ def login(request):
             return redirect('/index/')
 
     return render(request, 'login.html')
+
+
+
+def upload_iframe(request):
+    ret = {'status':True,'data':None}
+    try:
+        avatar = request.FILES.get('avatar')
+        file_name = str(uuid.uuid4()) + "." + avatar.name.rsplit('.', maxsplit=1)[1]
+        img_file_path = os.path.join('static', 'imgs', file_name)
+        with open(img_file_path, 'wb') as f:
+            for line in avatar.chunks():
+                f.write(line)
+        ret['data'] = os.path.join("/",img_file_path)
+    except Exception as e:
+        ret['status'] = False
+        ret['error'] = '上传失败'
+    return HttpResponse(json.dumps(ret))
+
+
+
+
+def register(request):         #在网页上传头像，用户名，密码，最后返回头像页面。bbs项目会用到
+    if request.method == "GET":
+        return render(request,'lianxiyong.html')
+    user = request.POST.get('user')
+    pwd = request.POST.get('pwd')
+    avatar = request.POST.get('avatar')
+
+    user = UserInfo.objects.create_user(username=user,password=pwd,avatar=avatar)
+    return redirect('/index/')
+
+    # return HttpResponse("注册成功")
+
+
+
 
 
 def get_query_data(username):

@@ -28,6 +28,8 @@ urlpatterns = [
     path('backend/add_article/', views.add_article),
     path('upload/', views.upload),
     path('login/', views.login,name='login'),
+    path('upload_iframe/', views.upload_iframe),
+    path('register/', views.register,),
     path('logout/', views.logout,name='logout'),
 
     re_path('(?P<username>\w+)/articles/(?P<article_id>\d+)', views.article_detail,),
